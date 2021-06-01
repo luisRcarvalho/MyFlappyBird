@@ -37,7 +37,6 @@ public class MyGdxGame extends ApplicationAdapter {
     private float posicaoCanoVertical;
     private float espaçoEntreCanos; //float para calcular o espaço entre os canos
 
-
     private Random random; //usado para randomizar os canos
 
     private float variacao = 0; //variação da altura para a animação
@@ -140,7 +139,7 @@ public class MyGdxGame extends ApplicationAdapter {
         //criação dos colliders
         circulopassaro.set(50 + passaros[0].getWidth() / 2, posicaoInicialVerticalPassaro + passaros[0].getHeight() / 2, passaros[0].getWidth() / 2);
 
-        retanguloCanoSuperior.set(posicaoCanoHorizontal, alturaDispositivo / 2 - + espaçoEntreCanos/ 2 + posicaoCanoVertical, canoSuperior.getWidth(), canoSuperior.getHeight() );
+        retanguloCanoSuperior.set(posicaoCanoHorizontal, alturaDispositivo / 2 + espaçoEntreCanos/ 2 + posicaoCanoVertical, canoSuperior.getWidth(), canoSuperior.getHeight() );
         retanguloCanoInferior.set(posicaoCanoHorizontal, alturaDispositivo / 2 - canoInferior.getHeight() - espaçoEntreCanos / 2 + posicaoCanoVertical, canoInferior.getWidth(), canoInferior.getHeight());
 
         //bool que vai detectar as colisões
@@ -174,11 +173,11 @@ public class MyGdxGame extends ApplicationAdapter {
                 somVoar.play();
             }
 
-        posicaoCanoHorizontal -= Gdx.graphics.getDeltaTime() * 300;//faz os canos virem em direção do player
+        posicaoCanoHorizontal -= Gdx.graphics.getDeltaTime() * 200;//faz os canos virem em direção do player
 
         if (posicaoCanoHorizontal < -canoInferior.getWidth()) { //pega a largura da tela para fazer ela avançar quando terminar
             posicaoCanoHorizontal = larguraDispositivo;
-            posicaoCanoHorizontal = random.nextInt( 600 ) - 200;//randomiza o espaçamento
+            posicaoCanoHorizontal = random.nextInt( 900 ) - 50;//randomiza o espaçamento
             passouCano = false; // e define como falsa a booleana
         }
 
